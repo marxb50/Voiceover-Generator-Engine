@@ -1,0 +1,19 @@
+{
+  "entries": [
+    {
+      "order": 1,
+      "session": "Afternoon Showcase",
+      "choreography": "Blue Motion",
+      "group": "Studio Horizonte",
+      "language": "pt-BR"
+    },
+    {
+      "order": 2,
+      "session": "Afternoon Showcase",
+      "choreography": "Northern Lights",
+      "group": "Studio Aurora",
+      "language": "en-US"
+    }
+  ]
+}
+

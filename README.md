@@ -4,6 +4,8 @@ Motor de automação em Python criado para preparar locuções e organizar áudi
 
 Este repositório funciona como um estudo de caso público. Planilhas, músicas, áudios, nomes de participantes e regras específicas de eventos permanecem fora do GitHub para proteger dados operacionais e conteúdo de terceiros.
 
+Além do estudo de caso, o repositório inclui uma **implementação de referência executável e sanitizada** do núcleo de validação e geração de manifestos. Ela usa somente dados fictícios e a biblioteca padrão do Python. O motor de produção e seus adaptadores de Excel, PDF, TTS e áudio continuam privados.
+
 ## Problema resolvido
 
 Preparar centenas de entradas de um festival manualmente exige copiar dados, conferir numeração, tratar pronúncias, gerar locuções, baixar músicas, criar pastas e validar cada saída. O motor transforma esse trabalho em um pipeline reproduzível e auditável.
@@ -47,6 +49,38 @@ Manifesto JSON + relatório HTML + logs
 - `pydub` / FFmpeg
 - Tkinter no aplicativo original
 
+## Executar a implementação pública
+
+Requer Python 3.10 ou superior.
+
+```bash
+python -m pip install -e .
+voiceover-manifest examples/program.json --output manifest.json
+python -m unittest discover -s tests -v
+```
+
+O comando valida a programação antes de gerar um manifesto JSON estável. Cada item contém sessão, ordem, idioma, voz, texto, caminho de saída e hash SHA-256 para auditoria.
+
+```json
+{
+  "id": "afternoon-showcase-001",
+  "language": "pt-BR",
+  "voice": "pt-BR-FranciscaNeural",
+  "status": "pending"
+}
+```
+
+### Estrutura pública
+
+```text
+src/voiceover_engine/
+├── domain.py       # objetos de domínio e normalização
+├── pipeline.py     # validação e geração do manifesto
+└── cli.py          # interface de linha de comando
+tests/              # testes de duplicidade, ordem e persistência
+examples/           # dados completamente fictícios
+```
+
 ## Escala observada
 
 O ambiente local de produção contém mais de **2.000 ativos de áudio**, diferentes perfis de festivais e um motor principal com **5.797 linhas de Python**.
@@ -64,4 +98,3 @@ O ambiente local de produção contém mais de **2.000 ativos de áudio**, difer
 [Multilingual TTS Studio](https://github.com/marxb50/Multilingual-TTS-Studio) documenta a camada web local criada sobre este motor.
 
 Desenvolvido por [Marx Bruno](https://github.com/marxb50).
-

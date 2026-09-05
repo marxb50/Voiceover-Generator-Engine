@@ -85,6 +85,8 @@ examples/           # dados completamente fictícios
 
 O ambiente local de produção contém mais de **2.000 ativos de áudio**, diferentes perfis de festivais e um motor principal com **5.797 linhas de Python**.
 
+As auditorias operacionais registram execuções de escala: **334 apresentações ativas** no Calixta 2026, **326** no FAC16, **292** no Ballace Kids e **194 músicas e locuções validadas** no ODNEM26. Esses números são referências do ambiente privado; os dados de participantes, planilhas, músicas e áudios continuam fora deste repositório.
+
 ## Decisões de engenharia
 
 - regras de cada evento ficam separadas do núcleo reutilizável;

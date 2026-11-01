@@ -1,3 +1,5 @@
+![Voiceover-Generator-Engine Preview](docs/preview.png)
+
 # Voiceover Generator Engine
 
 Motor de automação em Python criado para preparar locuções e organizar áudio em festivais de dança.
